@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Xuân Hùng - Fullstack Java Developer CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            animation: slideIn 0.8s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 3px solid transparent;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: padding-box;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            padding: 30px;
+            color: #fff;
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .job-title {
+            font-size: 1.3em;
+            color: #fff;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+        .contact-info a:hover {
+            transform: translateY(-3px);
+        }
+        .contact-info i {
+            font-size: 1.2em;
+        }
+        h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2 i {
+            color: #764ba2;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .summary {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 30px;
+        }
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #764ba2;
+            background: #f9f9f9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .experience-item:hover, .education-item:hover, .project-item:hover {
+            background: #f0f0f0;
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        .experience-item h3, .education-item h3, .project-item h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        .experience-item p, .education-item p, .project-item p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 0.95em;
+        }
+        .meta-info {
+            color: #999;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 8px;
+            color: #555;
+            position: relative;
+            padding-left: 15px;
+        }
+        ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .skill-category {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px;
+            border-radius: 8px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        .skill-category strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.1);
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: #fff;
+            border: 2px solid #e9e9e9;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .project-card a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            margin: 30px 0;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="avatar">👨‍💻</div>
+            <h1>Hồ Xuân Hùng</h1>
+            <p class="job-title">Fullstack Java Developer</p>
+            <div class="contact-info">
+                <a href="mailto:hoxuanhung@example.com">
+                    <i class="fas fa-envelope"></i>
+                    hoxuanhung@example.com
+                </a>
+                <a href="tel:+84123456789">
+                    <i class="fas fa-phone"></i>
+                    (+84) 123-456-789
+                </a>
+                <a href="https://linkedin.com/in/hoxuanhung" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/hoxuanhung" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-briefcase"></i> Summary</h2>
+            <div class="summary">
+                Highly motivated and results-driven Fullstack Java Developer with 5+ years of experience in designing, developing, and deploying scalable web applications. Proficient in Java, Spring Boot, React, Angular, and various database technologies. Passionate about creating robust, efficient, and user-friendly solutions.
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2><i class="fas fa-code"></i> Technical Skills</h2>
+            <div class="skills">
+                <div class="skill-category">
+                    <strong>🔷 Languages</strong>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <strong>⚙️ Backend Frameworks</strong>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Spring MVC</span>
+                        <span class="skill-tag">Hibernate</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <strong>🎨 Frontend Frameworks</strong>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Redux</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <strong>💾 Databases</strong>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Oracle</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <strong>🛠️ Tools & DevOps</strong>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <strong>📊 Methodologies</strong>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">Scrum</span>
+                        <span class="skill-tag">TDD</span>
+                        <span class="skill-tag">Microservices</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2><i class="fas fa-suitcase"></i> Work Experience</h2>
+            <div class="experience-item">
+                <div class="meta-info">📍 Company Name | City, Country | Jan 2023 – Present</div>
+                <h3>Senior Fullstack Java Developer</h3>
+                <ul>
+                    <li>Developed and maintained high-performance web applications using Java, Spring Boot, and Microservices architecture</li>
+                    <li>Designed and implemented RESTful APIs, ensuring seamless integration with frontend frameworks</li>
+                    <li>Led a team of 3 junior developers, conducting code reviews and mentoring on best practices</li>
+                    <li>Optimized database queries, improving application performance by 40%</li>
+                    <li>Implemented CI/CD pipelines using Jenkins and Docker for automated testing and deployment</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="meta-info">📍 Previous Tech Company | City, Country | Jun 2021 – Dec 2022</div>
+                <h3>Fullstack Java Developer</h3>
+                <ul>
+                    <li>Contributed to the development of enterprise-level applications serving 100K+ users</li>
+                    <li>Worked on both frontend (React) and backend (Java/Spring) components</li>
+                    <li>Participated in architectural decisions for microservices migration</li>
+                    <li>Collaborated with product team to define technical requirements</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="meta-info">📍 Junior Developer Position | City, Country | Jan 2020 – May 2021</div>
+                <h3>Junior Java Developer</h3>
+                <ul>
+                    <li>Developed backend features using Spring Boot and Hibernate</li>
+                    <li>Participated in daily stand-ups and sprint planning</li>
+                    <li>Learned and applied SOLID principles and design patterns</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="education-item">
+                <div class="meta-info">🎓 2019 - 2020</div>
+                <h3>Bachelor of Science in Computer Science</h3>
+                <p>University of Technology | City, Country</p>
+                <p>GPA: 3.8/4.0 | Relevant Coursework: Data Structures, Algorithms, OOP, Web Development, Database Systems</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2><i class="fas fa-project-diagram"></i> Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>📱 E-Commerce Platform</h3>
+                    <p><strong>Tech Stack:</strong> Spring Boot, React, PostgreSQL, Docker</p>
+                    <p>Built a full-stack e-commerce application with payment integration, inventory management, and real-time notifications. Handled 10K+ concurrent users.</p>
+                    <a href="https://github.com" target="_blank">→ View on GitHub</a>
+                </div>
+                <div class="project-card">
+                    <h3>🔧 Microservices Architecture</h3>
+                    <p><strong>Tech Stack:</strong> Spring Cloud, Kubernetes, RabbitMQ</p>
+                    <p>Migrated monolithic application to microservices architecture, reducing deployment time by 60% and improving scalability.</p>
+                    <a href="https://github.com" target="_blank">→ View on GitHub</a>
+                </div>
+                <div class="project-card">
+                    <h3>📊 Analytics Dashboard</h3>
+                    <p><strong>Tech Stack:</strong> React, Express.js, MongoDB, Chart.js</p>
+                    <p>Created real-time analytics dashboard processing millions of data points. Implemented advanced charting and data visualization.</p>
+                    <a href="https://github.com" target="_blank">→ View on GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <h2><i class="fas fa-award"></i> Certifications & Achievements</h2>
+            <div class="experience-item">
+                <ul>
+                    <li>🏆 AWS Certified Solutions Architect - Associate (2022)</li>
+                    <li>🏆 Oracle Certified Associate Java Programmer (2021)</li>
+                    <li>🏆 Top Contributor at Company - 2 years in a row</li>
+                    <li>🏆 Tech Speaker - "Building Scalable Microservices with Spring Cloud" (Conference 2023)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
